@@ -1,0 +1,144 @@
+1、最本质区别
+
+1）对于new的对象
+
+C++：
+
+（1）new出来的为指针，必须手动delete，并且将指针置为nullptr
+
+（2）指针访问内部方法，使用->
+
+Java：
+
+（1）new出来的为对象，不需要手动delete
+
+（2）访问内部对象，使用.
+
+2）对于异常处理
+
+C++：倾向于使用校验，代替异常处理
+
+Java：倾向于使用异常处理，代替校验
+
+3）继承
+
+C++：可以多继承
+
+class ActivationOp : public Op
+
+Java：不可多继承，可以使用接口来代替
+
+public class Penguin extends Animal
+
+整体：
+
+public class Penguin extends Animal { 
+    public Penguin(String myName, int myid) { 
+        super(myName, myid); 
+    } 
+}
+
+ 
+
+2、编程风格
+
+1）对象创建
+
+C++：
+
+工程->文件夹->class
+
+（1）可以在class外面包一层namespace来限制class的有效范围
+
+（2）class有.h和.cpp文件
+
+定义与实现分离
+
+默认生成构造函数和析构函数
+
+（3）main函数放在class外面
+
+Java：
+
+Project->Java Project->Package->class
+
+（1）通常class的范围属性，在class之前，如：public class HelloWorld {}
+
+（2）class里面可以放main函数，main函数要定义成static
+
+（3）class只有.java文件
+
+（4）每个类都有构造方法。默认构造函数没有显式定义
+
+2）命名规则
+
+C++：
+
+（1）class名：偏向于首字母大写：class PersonUtil{}
+
+（2）变量：偏向于下划线命名：my_name
+
+（3）函数：偏向于首字母大写：GetName()
+
+Java：
+
+（1）class名：偏向于首字母大写：class PersonUtil{}
+
+（2）变量：偏向于驼峰命名：myName
+
+（3）函数：偏向于首字母小写：getName()
+
+3）类中方法
+
+C++：
+
+私有方法/变量，共有方法/变量，根据public/private/protected关键字进行统一的分隔
+
+public:
+        BinaryTreeUtil();
+        ~BinaryTreeUtil();
+
+        //打印单个节点的值
+        void Visit(const TreeNode* tree_node);
+
+Java：
+
+每个方法前面都需要指定类的public/private/protected属性
+
+public void visit(final TreeNode tree_node)
+
+4）类中变量
+
+C++：通常方法放在变量前面
+
+Java：通常变量放在方法前面
+
+ 
+
+3、Java独有特性
+
+1）instanceof运算符
+
+用来判断变量类型，eg：
+
+String name = "James";
+boolean result = name instanceof String; // 由于 name 是 String 类型，所以返回真
+
+2）提供int、float、double、long、byte、short的包装类
+
+Integer、Long、Byte、Double、Float、Short
+
+3）interface和implements关键字
+
+（1）interface定义接口：
+
+public interface B {
+    public void show();
+}
+
+（2）接口使用：
+
+public class C implements A,B {
+}
+
+（3）C++中没有单独的继承接口关键字，统一在class中，使用virtual关键字表示
