@@ -1,0 +1,334 @@
+1、字符串
+
+C++：
+
+string：首字母小写
+
+string aaa = "aaa";
+
+Java：
+
+String：首字母大写
+
+String aaa = "aaa";
+
+
+
+2、char变量
+
+C++：
+
+8位，范围：0--256或者-128--127
+
+使用：char a = 'a';
+
+Java：
+
+16位，范围：0--65535
+
+使用：char a = 'a';
+
+Java中有个byte类型，8位，范围：-128--127
+
+
+
+3、bool型变量
+
+C++：
+
+bool flag = true;
+
+Java：
+
+boolean flag = true;
+
+
+
+4、容器
+
+1）map
+
+C++：
+
+（1）定义
+
+#include <map>
+
+map<string, int> inputMap;
+
+（2）根据key获取元素
+
+int value = inputMap[key];
+
+（3）判断元素是否存在
+
+if(0 == inputMap[key])
+
+（4）插入元素
+
+inputMap[key] = value;
+
+（5）遍历key和value
+
+for (auto iter = inputMap.begin(); iter != inputMap.end(); iter++)
+    {
+        cout << "[key]: " <<iter->first << ",[value]:" << iter->second << endl;
+    }
+
+Java：
+
+（1）定义
+
+import java.util.Map;
+import java.util.HashMap;
+
+Map<Integer, Integer> numCount = new HashMap<Integer, Integer>();
+
+（2）根据key获取元素
+
+int num = numCount.get(myArray[i]);
+
+（3）判断元素是否存在
+
+if(numCount.containsKey(myArray[i]))
+
+（4）插入元素
+
+numCount.put(myArray[i], num);
+
+（5）遍历key和value
+
+for(Map.Entry<Integer, Integer> entry: numCount.entrySet()){
+            System.out.println("key= " + entry.getKey() + " and value= " + entry.getValue());
+        }
+
+
+
+2）vector
+
+C++：
+
+（1）定义
+
+#include <vector>
+
+vector<int> min_k_vector;
+
+（2）新增元素
+
+min_k_vector.push_back(2);
+
+（3）获取元素
+
+min_k_vector[i]
+
+Java：
+
+（1）定义
+
+import java.util.ArrayList;
+
+ArrayList<Integer> objArray = new ArrayList<Integer>();
+
+（2）新增元素
+
+objArray.add(2);
+
+objArray.add(0,2);--第一个表示插入的位置
+
+（3）获取元素
+
+objArray[i]
+
+
+
+3）list
+
+C++：
+
+原理上来说插入、删除比较多的时候，使用list比vector高效，但实际上C++中vector使用更多
+
+（1）定义
+
+#include <list>
+
+list<int> int_list;
+
+（2）增加元素
+
+int_list.push_back(1);
+
+（3）遍历
+
+for (auto i : int_list) {
+        cout << i << endl;
+    }
+
+Java：
+
+（1）定义
+
+import java.util.List;
+import java.util.ArrayList;
+
+List<String> list = new ArrayList<String>();
+
+（2）增加元素
+
+list.add("aaa");
+
+（3）遍历
+
+for(String str : list){
+            System.out.println(str);
+        }
+
+
+
+4）stack
+
+C++：
+
+（1）定义
+
+#include <stack>
+
+stack<string> string_stack;
+
+（2）添加元素
+
+string_stack.push("AAA");
+
+（3）首个元素
+
+string_back.top()
+
+（4）删除元素
+
+string_back.pop()
+
+Java：
+
+（1）定义
+
+import java.util.Stack;
+
+Stack<String> stack = new Stack<String>();
+
+（2）添加元素
+
+stack.push("AAA");
+
+（3）首个元素
+
+stack.peek()
+
+（4）删除元素
+
+stack.pop()
+
+
+
+5）queue
+
+C++：
+
+（1）定义
+
+#include <queue>
+
+queue<int> queue;
+
+（2）添加元素
+
+queue.push(1);
+
+（3）首个元素
+
+queue.front()
+
+（4）删除元素
+
+queue.pop()
+
+Java：
+
+（1）定义
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+Queue<String> queue = new LinkedList<String>();
+
+（2）添加元素
+
+queue.offer("a");--优于add方法，参考：https://www.cnblogs.com/haimishasha/p/10808906.html
+
+（3）首个元素
+
+queue.peek()
+
+（4）删除元素
+
+queue.poll()
+
+
+
+6）set
+
+C++：
+
+（1）定义
+
+#include <set>
+
+set<int> int_set;
+
+（2）添加元素
+
+int_set.insert(1);
+
+（3）遍历
+
+for (auto i : int_set) {
+        cout << i << endl;
+    }
+
+Java：
+
+（1）定义
+
+import java.util.Set;
+
+Set<String> set = new HashSet<String>();
+
+（2）添加元素
+
+set.add("JAVA");
+
+（3）遍历
+
+for(String s: set){
+         System.out.println(s);
+      }
+
+
+
+5、enum
+
+C++：
+
+枚举只是一些字符串
+
+Java：枚举可以有构造函数，方法
+
+enum Car {
+    lamborghini(900),tata(2),audi(50),fiat(15),honda(12);
+    private int price;
+    Car(int p) {
+        price = p;
+    }
+    int getPrice() {
+        return price;
+    } 
+}
